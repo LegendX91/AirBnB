@@ -1,21 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, ScrollView } from 'react-native';
-import HomeScreen from './src/screens/Home';
-import Post from './src/components/Post';
-import feed from './assets/data/feed';
-import SearchResultsPage from './src/screens/searchResults';
-import DestinationSearchScreen from './src/screens/DestinationSearch';
-import GuestsScreen from './src/screens/Guests';
-
+import react from 'react';
+import 'react-native-gesture-handler'
+import Router from './src/navigation/router';
 
 export default function App() {
   return (
-    <SafeAreaView>
-      {/*<HomeScreen />*/}
-      {/*<SearchResultsPage />*/}
-      {/*<DestinationSearchScreen />*/}
-      <GuestsScreen />
-      <StatusBar style="dark-content" />
-    </SafeAreaView>
+      <>
+        <StatusBar barStyle='dark-content' />
+        <Router />
+      </>
   );
 }
