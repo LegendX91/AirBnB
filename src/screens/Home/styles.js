@@ -39,8 +39,8 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 20,
         height: 60,
-        elevation: 100, // android
-        zIndex: 100     // iOS
+        elevation: 1, // android
+        zIndex: 2     // iOS
     },
     searchButtonText: {
         fontSize: 16,
