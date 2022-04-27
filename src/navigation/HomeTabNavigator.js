@@ -19,6 +19,7 @@ const HomeTabNavigator = (props) => {
             <Tab.Screen name={'Explore'}
                         component={HomeScreen}
                         options={{
+                            headerShown: false,
                             tabBarIcon: ({color}) => {
                                 return <Fontisto name="search" size={25} color={color} />
                             } 
@@ -26,6 +27,7 @@ const HomeTabNavigator = (props) => {
             <Tab.Screen name={'Saved'}
                         component={HomeScreen}
                         options={{
+                            headerShown: false,
                             tabBarIcon: ({color}) => {
                                 return <FontAwesome name='heart-o' size={25} color={color} />;
                             } 
@@ -33,6 +35,7 @@ const HomeTabNavigator = (props) => {
             <Tab.Screen name={'Airbnb'}
                         component={HomeScreen}
                         options={{
+                            headerShown: false,
                             tabBarIcon: ({color}) => {
                                 return <FontAwesome5 name='airbnb' size={25} color={color} />;
                             } 
@@ -40,6 +43,7 @@ const HomeTabNavigator = (props) => {
             <Tab.Screen name={'Messages'}
                         component={HomeScreen}
                         options={{
+                            headerShown: false,
                             tabBarIcon: ({color}) => {
                                 return <Feather name='message-square' size={25} color={color} />
                             } 
@@ -47,6 +51,7 @@ const HomeTabNavigator = (props) => {
             <Tab.Screen name={'Profile'}
                         component={HomeScreen}
                         options={{
+                            headerShown: false,
                             tabBarIcon: ({color}) => {
                                 return <EvilIcons name='user' size={25} color={color} />
                             } 
