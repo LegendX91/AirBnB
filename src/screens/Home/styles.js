@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
         position: 'absolute',
-        top: 20,
+        top: 40,
         height: 60,
         elevation: 1, // android
         zIndex: 2     // iOS
