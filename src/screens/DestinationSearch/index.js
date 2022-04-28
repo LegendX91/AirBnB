@@ -4,7 +4,9 @@ import { useNavigation } from "@react-navigation/native";
 import styles from "./styles";
 import Entypo from 'react-native-vector-icons/Entypo';
 
+
 import searchResults from '../../../assets/data/search';
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 
 const DestinationSearchScreen = (props) => {
 
@@ -13,7 +15,18 @@ const DestinationSearchScreen = (props) => {
 
     return (
         <View style={styles.container}>
-            
+            {/* <View style={{height: 500}}>
+                <GooglePlacesAutocomplete 
+                    placeholder='Search'
+                    onPress={(data, details = null) => {
+                        console.log(data, details)
+                    }}
+                    query={{
+                        key: 'AIzaSyAMBB3p_J3io7sBOwe6nj6tIYgKowAQXC0',
+                        language: 'en'
+                    }}
+                /> 
+            </View> */}
             <TextInput 
                 style={styles.textInput} 
                 placeholder={"Where are you going?"}
