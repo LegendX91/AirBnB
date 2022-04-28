@@ -103,7 +103,12 @@ const GuestsScreen = (props) => {
                 {/* Row 3: Infants */}
             </View>
             <View>
-                <Pressable  onPress={() => navigation.navigate('Explore')}
+                <Pressable  onPress={() =>  navigation.navigate('Home', {
+                                                                screen: 'Explore',
+                                                                params: {
+                                                                    screen: 'SearchResults',
+                                                                }})}
+                                                                /** NESTED */
                             style={{ marginBottom: 20, 
                                     backgroundColor: '#f15454', 
                                     alignItems: 'center', 

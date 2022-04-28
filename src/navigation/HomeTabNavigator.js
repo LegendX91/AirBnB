@@ -8,16 +8,17 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Feather from 'react-native-vector-icons/Feather';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import ExploreNavigator from './ExploreNavigator.js';
 
 const Tab = createBottomTabNavigator();
 
 const HomeTabNavigator = (props) => {
     return (
-        <Tab.Navigator tabBarOptions={{
-            activeTintColor: '#f15454'
+        <Tab.Navigator screenOptions={{
+            tabBarActiveTintColor: '#f15454',
         }}>
             <Tab.Screen name={'Explore'}
-                        component={HomeScreen}
+                        component={ExploreNavigator}
                         options={{
                             headerShown: false,
                             tabBarIcon: ({color}) => {
