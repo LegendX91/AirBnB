@@ -22,7 +22,7 @@ const DestinationSearchScreen = (props) => {
                         console.log(data, details)
                     }}
                     query={{
-                        key: 'AIzaSyAMBB3p_J3io7sBOwe6nj6tIYgKowAQXC0',
+                        key: '<<<< === API KEY === >>>>',
                         language: 'en'
                     }}
                 /> 
