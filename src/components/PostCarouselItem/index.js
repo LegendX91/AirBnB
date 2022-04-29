@@ -13,7 +13,7 @@ const Post = (props) => {
     const navigation = useNavigation();
 
     return (
-        <Pressable  onPress={() => navigation.navigate('Post', {postId: post.id})}
+        <Pressable  onPress={() => navigation.navigate('Post', {post: post})}
                     style={[styles.container, { width: width - 50 }]}>
             <View style={styles.innerContainer}>
             <Image style={styles.image} source={{uri: post.image}} />

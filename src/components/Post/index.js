@@ -12,7 +12,7 @@ const Post = (props) => {
     const post = props.post;
 
     return (
-        <Pressable onPress={() => navigation.navigate('Post', {postId: post.id})} style={styles.container}>
+        <Pressable onPress={() => navigation.navigate('Post', {post: post})} style={styles.container}>
             <Image style={styles.image} source={{uri: post.image}} />
             <Text style={styles.bedrooms}>{post.bed} bed/s {post.bedroom} bedroom/s</Text>
             <Text style={styles.description} numberOfLines={2}>
