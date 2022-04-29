@@ -7,6 +7,8 @@ const Post = (props) => {
 
     const navigation = useNavigation();
 
+    const days = 7; //PH
+
     const post = props.post;
 
     return (
@@ -21,7 +23,7 @@ const Post = (props) => {
                 <Text style={styles.price}>  €{post.newPrice} </Text>
                 / night
             </Text>
-            <Text style={styles.totalPrice}>€ {post.totalPrice}</Text>
+            <Text style={styles.totalPrice}>€ {post.newPrice * days}</Text>
         </Pressable>
     );
 };

@@ -1,14 +1,29 @@
-import React from "react";
-import { View, Image, Text, Pressable } from "react-native";
+import React, {useEffect, useState} from "react";
+import { View, Image} from "react-native";
 import PostCarouselItem from '../../components/PostCarouselItem';
-
-import feed from "../../../assets/data/feed";
+import { API, graphqlOperation } from 'aws-amplify';
+import { listPosts } from '../../graphql/queries';
 import { FlatList } from "react-native-gesture-handler";
 import useWindowDimensions from "react-native/Libraries/Utilities/useWindowDimensions";
 
 const MapPage = (props) => {
     
-    const post = feed;
+    const [feed, setFeed] = useState([]);
+
+    const fetchPosts = async () => {
+        try {
+            const postsResult = await API.graphql(
+                graphqlOperation(listPosts)
+            )
+            setFeed(postsResult.data.listPosts.items);
+        }catch (e){
+            console.log(e);
+        }
+    }
+
+    useEffect(() => {
+        fetchPosts();
+    })
 
     const width = useWindowDimensions().width;
 
@@ -20,7 +35,7 @@ const MapPage = (props) => {
                             bottom: 40
             }}>
                 <FlatList
-                    data={post}
+                    data={feed}
                     renderItem={({item}) => <PostCarouselItem post={item} />}
                     horizontal
                     showsHorizontalScrollIndicator={false}
