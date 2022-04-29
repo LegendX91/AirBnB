@@ -10,6 +10,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import ExploreNavigator from './ExploreNavigator.js';
 import PostPage from '../screens/PostScreen';
+import Profile from '../screens/Profile';
 
 const Tab = createBottomTabNavigator();
 
@@ -51,7 +52,7 @@ const HomeTabNavigator = (props) => {
                             } 
             }} />
             <Tab.Screen name={'Profile'}
-                        component={HomeScreen}
+                        component={Profile}
                         options={{
                             headerShown: false,
                             tabBarIcon: ({color}) => {
