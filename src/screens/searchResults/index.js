@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, Text } from 'react-native';
 import Post from '../../components/Post';
 import { API, graphqlOperation } from 'aws-amplify';
 import { listPosts } from '../../graphql/queries';
@@ -35,6 +35,7 @@ const SearchResultsPage = (props) => {
             <FlatList 
                 data={feed}
                 renderItem={({item}) => <Post post={item} />}
+                ListEmptyComponent={<Text style={{fontSize: 20, margin: 20, fontWeight: 'bold', color: 'grey'}}>No Results Found</Text>}
             />
         </View>
     )

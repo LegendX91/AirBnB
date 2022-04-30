@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { View, Image} from "react-native";
+import { View, Image, Text} from "react-native";
 import PostCarouselItem from '../../components/PostCarouselItem';
 import { API, graphqlOperation } from 'aws-amplify';
 import { listPosts } from '../../graphql/queries';
@@ -49,6 +49,7 @@ const MapPage = (props) => {
                     snapToInterval={width - 60}
                     snapToAlignment={'center'}
                     decelerationRate={'fast'}
+                    ListEmptyComponent={<Text style={{fontSize: 20, margin: 20, fontWeight: 'bold', color: 'grey'}}>No Results Found</Text>}
                 />
             </View>
         </View>
