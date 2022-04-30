@@ -10,9 +10,9 @@ const HomeScreen = (props) => {
     
     return (
         <View>
-            <ImageBackground source={require("../../../assets/images/wallpaper.jpg")} style={styles.image}>
+            <ImageBackground source={require("../../../assets/images/HomeImg.jpg")} style={styles.image}>
                 <Pressable style={styles.searchButton} onPress={() => navigation.navigate('Destination Search')}>
-                    <Fontisto name="search" size={25} color={"#f15454"} />
+                    <Fontisto name="search" size={25} color={"#f15454"} style={{marginRight: 10}}/>
                     <Text style={styles.searchButtonText}>Where are you going?</Text>
                 </Pressable>
                 <Text style={styles.title}>Go Near</Text>

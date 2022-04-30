@@ -9,42 +9,46 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Feather from 'react-native-vector-icons/Feather';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import ExploreNavigator from './ExploreNavigator.js';
-import PostPage from '../screens/PostScreen';
 import Profile from '../screens/Profile';
+import Messages from '../screens/Messages';
+import Favorites from '../screens/Favorites';
 
 const Tab = createBottomTabNavigator();
 
 const HomeTabNavigator = (props) => {
     return (
-        <Tab.Navigator screenOptions={{
-            tabBarActiveTintColor: '#f15454',
-        }}>
+        <Tab.Navigator  screenOptions={{
+                            tabBarActiveTintColor: '#f15454',
+                            tabBarStyle:{
+                                backgroundColor: 'white',
+                                borderTopWidth: 1.,
+                                borderTopColor: 'black',
+                                height: '7.5%',
+                            },
+                            tabBarLabelStyle: {
+                                fontSize: 14,
+                                fontWeight: 'bold'
+                            },
+                        }}
+                        >
             <Tab.Screen name={'Explore'}
                         component={ExploreNavigator}
                         options={{
                             headerShown: false,
                             tabBarIcon: ({color}) => {
-                                return <Fontisto name="search" size={25} color={color} />
+                                return <Fontisto name="search" size={25} allowFontScaling={true} color={color} />
                             } 
                         }} />
-            <Tab.Screen name={'Saved'}
-                        component={HomeScreen}
+            <Tab.Screen name={'Favorites'}
+                        component={Favorites}
                         options={{
                             headerShown: false,
                             tabBarIcon: ({color}) => {
                                 return <FontAwesome name='heart-o' size={25} color={color} />;
                             } 
             }} />
-            <Tab.Screen name={'Airbnb'}
-                        component={HomeScreen}
-                        options={{
-                            headerShown: false,
-                            tabBarIcon: ({color}) => {
-                                return <FontAwesome5 name='airbnb' size={25} color={color} />;
-                            } 
-            }} />
             <Tab.Screen name={'Messages'}
-                        component={HomeScreen}
+                        component={Messages}
                         options={{
                             headerShown: false,
                             tabBarIcon: ({color}) => {
