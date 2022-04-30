@@ -22,7 +22,7 @@ const HomeTabNavigator = (props) => {
                             tabBarStyle:{
                                 backgroundColor: 'white',
                                 borderTopWidth: 1.,
-                                borderTopColor: 'black',
+                                borderTopColor: 'lightgrey',
                                 height: '7.5%',
                             },
                             tabBarLabelStyle: {
