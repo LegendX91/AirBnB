@@ -10,11 +10,18 @@ const MapPage = (props) => {
     
     const [feed, setFeed] = useState([]);
 
+    const { guests } = props;
+
     const fetchPosts = async () => {
         try {
             const postsResult = await API.graphql(
-                graphqlOperation(listPosts)
-            )
+                graphqlOperation(listPosts, {
+                    filter: {
+                        maxGuests: {
+                            ge: guests
+                        }
+                    }
+                }));
             setFeed(postsResult.data.listPosts.items);
         }catch (e){
             console.log(e);

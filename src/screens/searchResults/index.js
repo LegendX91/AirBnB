@@ -3,18 +3,23 @@ import { View, FlatList } from 'react-native';
 import Post from '../../components/Post';
 import { API, graphqlOperation } from 'aws-amplify';
 import { listPosts } from '../../graphql/queries';
-import { useRoute } from '@react-navigation/native';
 
 const SearchResultsPage = (props) => {
 
     const [feed, setFeed] = useState([]);
-    const route = useRoute();
+    
+    const { guests }  = props;
 
     const fetchPosts = async () => {
         try {
             const postsResult = await API.graphql(
-                graphqlOperation(listPosts)
-            )
+                graphqlOperation(listPosts, {
+                    filter: {
+                        maxGuests: {
+                            ge: guests
+                        }
+                    }
+                }));
             setFeed(postsResult.data.listPosts.items);
         }catch (e){
             console.log(e);

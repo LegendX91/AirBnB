@@ -18,12 +18,13 @@ const Post = (props) => {
             <Text style={styles.description} numberOfLines={2}>
                 {post.type}, {post.title}
             </Text>
+             <Text style={{fontSize: 15, fontWeight: 'bold', textAlign: 'left', color: 'black'}}>SAVE {Math.round(100-(100*post.newPrice/post.oldPrice))}%!</Text>
             <Text style={styles.prices}>
                 <Text style={styles.oldPrice}> €{post.oldPrice}</Text>
-                <Text style={styles.price}>  €{post.newPrice} </Text>
-                / night
+                <Text style={[styles.price, {color: 'black'}]}>  €{post.newPrice} / Night </Text>
             </Text>
-            <Text style={styles.totalPrice}>€ {post.newPrice * days}</Text>
+            <Text style={[styles.totalPrice, {textAlign: 'right'}]}>€ {post.newPrice * days}</Text>
+            <Text style={{fontSize: 15, fontWeight: 'bold', textAlign: 'right'}} >Max Guests: {post.maxGuests}</Text>
         </Pressable>
     );
 };

@@ -31,7 +31,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     totalPrice: {
-        color: '#5b5b5b',
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: 'darkorange',
         textDecorationLine: 'underline',
     }
 });
