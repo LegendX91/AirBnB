@@ -5,7 +5,13 @@ import Router from './src/navigation/router';
 import { withAuthenticator } from 'aws-amplify-react-native'
 import { Amplify } from 'aws-amplify';
 import awsconfig from './src/aws-exports';
-Amplify.configure(awsconfig);
+
+Amplify.configure({
+  ...awsconfig,
+  Analytics: {
+    disabled: true,
+  },
+});
 
 function App() {
   return (
