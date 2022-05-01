@@ -8,7 +8,7 @@ import PostScreen from '../screens/PostScreen';
 
 const Stack = createStackNavigator();
 
-const Router = (props) => {
+const Router = () => {
     return(
         <NavigationContainer>
             <Stack.Navigator>

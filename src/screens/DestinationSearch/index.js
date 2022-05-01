@@ -8,7 +8,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import searchResults from '../../../assets/data/search';
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 
-const DestinationSearchScreen = (props) => {
+const DestinationSearchScreen = () => {
 
     const [inputText, setInputText] = useState('');
     const navigation = useNavigation();
