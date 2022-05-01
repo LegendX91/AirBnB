@@ -1,7 +1,7 @@
 import React, { useEffect, useState} from 'react';
 import { View, FlatList, Text } from 'react-native';
 import Post from '../../components/Post';
-import { API, graphqlOperation } from 'aws-amplify';
+import { API, graphqlOperation, Storage } from 'aws-amplify';
 import { listPosts } from '../../graphql/queries';
 
 const SearchResultsPage = (props) => {
@@ -20,6 +20,14 @@ const SearchResultsPage = (props) => {
                         }
                     }
                 }));
+                const postsFromAPI = postsResult.data.listPosts.items;
+                await Promise.all(postsFromAPI.map(async post => {
+                    if (post.image) {
+                        const image = await Storage.get(('images/' + post.image), {level:'public'});
+                        post.image = image;
+                    }
+                    return post;
+                  }))
             setFeed(postsResult.data.listPosts.items);
         }catch (e){
             console.log(e);
