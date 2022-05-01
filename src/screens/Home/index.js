@@ -5,7 +5,7 @@ import Fontisto from "react-native-vector-icons/Fontisto";
 import { useNavigation } from "@react-navigation/native";
 import { Storage } from "aws-amplify";
 
-const HomeScreen = (props) => {
+const HomeScreen = () => {
 
     const [imageBackground, setImageBackground] = useState('HomeImg.jpg');
 

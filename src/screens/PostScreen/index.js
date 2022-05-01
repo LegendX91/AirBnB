@@ -1,9 +1,9 @@
 import react from "react";
-import { View, Text } from 'react-native';
+import { View, } from 'react-native';
 import DetailedPost from '../../components/DetailedPost';
 import { useRoute } from "@react-navigation/native";
 
-const PostScreen = (props) => {
+const PostScreen = () => {
 
     const route = useRoute();
 
