@@ -1,32 +1,42 @@
 import React, {useEffect, useState} from "react";
 import { View, Text, ImageBackground } from "react-native";
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
-import { Dimensions } from "react-native";
-import { Auth } from "aws-amplify";
+import { Auth, Storage } from "aws-amplify";
 import { useNavigation } from "@react-navigation/native";
 import styles from "../Profile/styles";
 import Fontisto from "react-native-vector-icons/Fontisto";
 
-const Profile = (props) => {
+const Profile = () => {
 
     const [user, setUser] = useState('');
     const [email, setEmail] = useState('');
+    const [imageBackground, setImageBackground] = useState('ProfileImg.jpg');
 
     async function checkUser() {
         let test = await Auth.currentAuthenticatedUser();  
-        setUser(user => test.username);
-        setEmail(email => test.attributes.email);
+        setUser(test.username);
+        setEmail(test.attributes.email);
+    }
+
+    const fetchBackground = async () => {
+        try {
+            setImageBackground(await Storage.get(('images/' + imageBackground), {level:'public'}));
+        }catch (e){
+            console.log(e);
+        }
     }
 
     useEffect(() => {
         checkUser();
+        fetchBackground();
     }, [])
 
     const navigation = useNavigation();
 
+
     return (
         <View>
-            <ImageBackground blurRadius={3} source={require("../../../assets/images/ProfileImg.jpg")} style={styles.image}>
+            <ImageBackground blurRadius={3} source={{uri:imageBackground}} style={styles.image}>
                 <Pressable style={styles.searchButton} onPress={() => navigation.navigate('Destination Search')}>
                     <Fontisto name="search" size={25} color={"#f15454"} style={{marginRight: 10}}/>
                     <Text style={[styles.searchButtonText, {color: 'black'}]}>Where are you going?</Text>

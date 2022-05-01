@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { View, Image, Text} from "react-native";
 import PostCarouselItem from '../../components/PostCarouselItem';
-import { API, graphqlOperation } from 'aws-amplify';
+import { API, graphqlOperation, Storage } from 'aws-amplify';
 import { listPosts } from '../../graphql/queries';
 import { FlatList } from "react-native-gesture-handler";
 import useWindowDimensions from "react-native/Libraries/Utilities/useWindowDimensions";
@@ -22,6 +22,14 @@ const MapPage = (props) => {
                         }
                     }
                 }));
+                const postsFromAPI = postsResult.data.listPosts.items;
+                await Promise.all(postsFromAPI.map(async post => {
+                    if (post.image) {
+                        const image = await Storage.get(('images/' + post.image), {level:'public'});
+                        post.image = image;
+                    }
+                    return post;
+                  }))
             setFeed(postsResult.data.listPosts.items);
         }catch (e){
             console.log(e);
@@ -30,7 +38,7 @@ const MapPage = (props) => {
 
     useEffect(() => {
         fetchPosts();
-    })
+    }, [])
 
     const width = useWindowDimensions().width;
 
