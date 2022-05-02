@@ -30,7 +30,7 @@ const HomeScreen = () => {
                     <Fontisto name="search" size={25} color={"#f15454"} style={{marginRight: 10}}/>
                     <Text style={styles.searchButtonText}>Where are you going?</Text>
                 </Pressable>
-                <Text style={styles.title}>Go Near</Text>
+                <Text style={styles.title}>Explore</Text>
                 <Pressable style={styles.button} onPress={() => console.warn('Explore Btn clicked')}>
                     <Text style={styles.buttonText}>Explore nearby states</Text>
                 </Pressable>
